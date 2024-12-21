@@ -1,0 +1,51 @@
+<nav class="my-5 bg-light-blue d-inline-block w-100">
+    <div class="container">
+      <div class="row">
+        <div class="p-2 font-22 text-white text-center">
+          LOGIN
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="login-form">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="p-4 mx-form-lg m-auto bg-white border-dark-gray rounded-10">
+            <div class="mb-3 font-16 font-weight-medium text-light-gray">
+              Please enter the case sensitive password from your official
+              invitation
+            </div>
+            <form [formGroup]="loginForm">
+              <div class="mb-4">
+                <label for="password" class="mb-1 font-weight-bold font-16
+                  text-dark-gray w-100">Password:</label>
+                <input type="password" formControlName="password" class="p-2
+                  w-100">
+                <div class="errors" *ngIf="!loginForm.get('password')?.valid &&
+                  loginForm.get('password')?.touched">
+                  <span class="d-inline-block w-100"
+                    *ngIf="loginForm.get('password')?.errors?.['required']">Password
+                    is required</span>
+                  <span class="d-inline-block w-100"
+                    *ngIf="loginForm.get('password')?.errors?.['minlength']">Please
+                    Enter Maximum 8 Characters</span>
+                  <span class="d-inline-block w-100"
+                    *ngIf="loginForm.get('password')?.errors?.['pattern']">Please
+                    Enter Strong Password</span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn px-3 py-2 bg-dark-blue
+                  font-weight-medium text-white font-16" (click)="logInForm()">Login</button>
+                <!-- <button type="button" class="btn px-3 py-2 text-dark-blue
+                  border-dark-blue font-weight-medium font-16 ms-2"
+                  (click)="registerForm()">Register</button> -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
